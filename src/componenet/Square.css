@@ -1,0 +1,48 @@
+.square {
+  background-color: white;
+  border: none;
+  border-radius: calc(var(--border-radius) / 2);
+  font-size: 48px;
+  font-weight: bold;
+  color: var(--primary-color);
+  height: 100px;
+  width: 100%;
+  transition: var(--transition);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.square:hover {
+  background-color: var(--background-color);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.square:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.5), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.square:active {
+  transform: translateY(2px) scale(0.95);
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.square:not(:empty) {
+  animation: appear 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@media (max-width: 480px) {
+  .square {
+    height: 70px;
+    font-size: 28px;
+  }
+}
+
